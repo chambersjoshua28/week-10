@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Courses</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Business Courses</h2>
+    <!-- Table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+            </tr>
+        </thead>
+        <tbody id="course-table-body">
+            <!-- Rows will be dynamically added here -->
+            <tr>
+                <td>101</td>
+                <td>Business 101</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Business 102</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Business 103</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Form -->
+    <form id="add-course-form">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control" id="course-code" placeholder="Course Code" required>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="course-name" placeholder="Course Name" required>
+            </div>
+            <div class="form-group col-md-3">
+                <button type="submit" class="btn btn-primary">Add Course</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Bootstrap JS (Optional, if you need Bootstrap components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    // Function to handle form submission
+    document.getElementById("add-course-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Get input values
+        var courseCode = document.getElementById("course-code").value;
+        var courseName = document.getElementById("course-name").value;
+        // Add new row to the table
+        var newRow = "<tr><td>" + courseCode + "</td><td>" + courseName + "</td></tr>";
+        document.getElementById("course-table-body").innerHTML += newRow;
+        // Clear form inputs
+        document.getElementById("course-code").value = "";
+        document.getElementById("course-name").value = "";
+    });
+</script>
+
+</body>
+</html>
